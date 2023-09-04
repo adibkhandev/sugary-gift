@@ -2,6 +2,7 @@
 declare module 'vue' {
   export interface GlobalComponents {
     'Home': typeof import("../components/Home.vue")['default']
+    'Letter': typeof import("../components/Letter.vue")['default']
     'Loader': typeof import("../components/Loader.vue")['default']
     'NuxtWelcome': typeof import("../node_modules/@nuxt/ui-templates/dist/templates/welcome.vue")['default']
     'NuxtLayout': typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
@@ -22,6 +23,7 @@ declare module 'vue' {
     'Html': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']
     'Body': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
     'LazyHome': typeof import("../components/Home.vue")['default']
+    'LazyLetter': typeof import("../components/Letter.vue")['default']
     'LazyLoader': typeof import("../components/Loader.vue")['default']
     'LazyNuxtWelcome': typeof import("../node_modules/@nuxt/ui-templates/dist/templates/welcome.vue")['default']
     'LazyNuxtLayout': typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
@@ -45,6 +47,7 @@ declare module 'vue' {
 }
 
 export const Home: typeof import("../components/Home.vue")['default']
+export const Letter: typeof import("../components/Letter.vue")['default']
 export const Loader: typeof import("../components/Loader.vue")['default']
 export const NuxtWelcome: typeof import("../node_modules/@nuxt/ui-templates/dist/templates/welcome.vue")['default']
 export const NuxtLayout: typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
@@ -65,6 +68,7 @@ export const Head: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
 export const LazyHome: typeof import("../components/Home.vue")['default']
+export const LazyLetter: typeof import("../components/Letter.vue")['default']
 export const LazyLoader: typeof import("../components/Loader.vue")['default']
 export const LazyNuxtWelcome: typeof import("../node_modules/@nuxt/ui-templates/dist/templates/welcome.vue")['default']
 export const LazyNuxtLayout: typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']

@@ -1,0 +1,166 @@
+<template>
+	<div 
+	 class="letter-container"
+	 @click="opener"
+	  v-motion
+		 :initial="{
+		 	opacity: 0,
+		 	y:50,
+		 }"
+		 :enter="{
+		 	opacity:1,
+		 	y:0,
+		 	transition: {
+		      type: 'spring',
+		      stiffness: 250,
+		      damping: 25,
+		      mass: 0.5,
+		      y: {
+		        duration: 1000,
+		      },
+		      opacity: {
+		        delay: 200,
+		        duration:1000,
+		      },
+
+ 
+		    },
+		 }"
+		 :delay="200"
+	 >  
+	    <div
+	      v-if="!opened" 
+	      class="guide"
+	      >
+            <h1
+             v-motion
+             :class="{leaves:opened}"
+             :initial="{
+             	y:0,
+             }"
+             :enter="{
+             	y:30,
+             	transition:{
+             		type:'spring',
+             		repeat:Infinity,
+             		repeatType:'mirror',
+             		repeatDelay:300,
+             		stiffness: 90,
+				    damping: 60,
+				    mass: 0.4,
+             	}
+             }"
+
+             >
+		      	Tap to open card
+            </h1>
+	    </div>
+		<div  class="letter">
+			<div 
+			  class="cover"
+              :class="{coverOpened:opened}"
+			  >
+				<img src="~/assets/images/letter.png" alt="">
+			</div>
+			<div class="info">
+				<div class="header">
+					Dear employee ,
+				</div>
+				<div class="writting">
+					Give your best effort for the team and your career
+				</div>
+				<div class="footer">
+					<h1>
+						~ Blessings from
+					</h1>
+					<h1>
+						Tanvr
+					</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+<script setup>
+	const opened = ref(false)
+	const opener = () =>{
+		opened.value = true
+		console.log('clicking')
+	}
+</script>
+<style lang="scss" scoped>
+	.leaves{
+		animation-name: card-leave;
+		animation-duration: 0.6s;
+	}
+   .letter-container{
+   	position: absolute;
+   	top: 0;
+   	z-index: -3;
+   	 display: flex;
+   	 justify-content: center;
+   	 align-items: center;
+   	 width: 100vw;
+   	 height: 100vh;
+     .letter{
+     	width: 18em;
+     	height: 23em;
+     	position: relative;
+
+     	.cover{
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          transform-origin: left;
+          transform: rotateY(0deg);
+          img{
+          	width: 100%;
+          }
+     	}
+     	.coverOpened{
+     		animation-name: open-letter;
+     		animation-duration: 1s;
+     		animation-timing-function: ease-in;
+     		animation-fill-mode: forwards;
+     	}
+     	.info{
+	 	  display: flex;
+	 	  flex-direction: column;
+	 	  justify-content: center;
+     	  position: absolute;
+     	  top: 0;
+     	  z-index: -1;
+     	  
+          height: 100%;
+          padding: 0 4em;
+          background-color: rgb(255, 253, 250);
+      	  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+          font-family: 'Dancing Script', cursive;
+          .header{
+          	font-size: 0.9em;
+          	margin-bottom: 0.4em;
+          }
+          .footer{
+          	margin-top: 8em;
+          	font-size: 0.3em;
+          	display: flex;
+          	flex-direction: column;
+          	align-items: flex-end;
+          }
+     	}
+     }
+
+     .guide{
+     	height: 100vh;
+     	width: 100vw;
+     	position: absolute;
+     	top: 0;
+     	display: flex;
+     	justify-content: center;
+     	margin-top: 8vh;
+     	font-family: Cairo;
+     	font-size: 0.5em;
+     	font-weight: 100;
+     }
+   }	
+</style>

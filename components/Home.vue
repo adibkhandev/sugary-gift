@@ -71,7 +71,13 @@
 		  >
 			<div :class="{openUpLeft:animationState==2}" class="wrap" id="wrap-left"></div>
 			<div :class="{openUpRight:animationState==2}" class="wrap" id="wrap-right"></div>
-	    </div>	</div>
+	    </div>
+	    <Letter 
+	      v-if="animationState>=3"
+         
+	      >
+	    </Letter>	
+	</div>
 </template>
 <script setup>
 	const loading = ref(true)

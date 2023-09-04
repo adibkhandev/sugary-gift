@@ -32,3 +32,8 @@
 	  transform: translateX(-200vw);
 	}
 }
+@keyframes open-letter {
+	to{
+		transform: rotateY(180deg);
+	}
+}
