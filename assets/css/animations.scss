@@ -20,6 +20,7 @@
 @keyframes scaleUp {
 	to{
 		transform: scale(5);
+		opacity: 0;
 	}
 }
 @keyframes openUpRight {
@@ -32,8 +33,10 @@
 	  transform: translateX(-200vw);
 	}
 }
-@keyframes open-letter {
+
+@keyframes curve-letter {
+	
 	to{
-		transform: rotateY(180deg);
+		transform: rotateY(-140deg) ;
 	}
 }

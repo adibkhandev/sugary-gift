@@ -5,7 +5,7 @@
 	  v-motion
 		 :initial="{
 		 	opacity: 0,
-		 	y:50,
+		 	y:30,
 		 }"
 		 :enter="{
 		 	opacity:1,
@@ -29,25 +29,26 @@
 		 :delay="200"
 	 >  
 	    <div
-	      v-if="!opened" 
+	      :class="{leaves:opened}" 
 	      class="guide"
 	      >
             <h1
-             v-motion
              :class="{leaves:opened}"
+             v-motion
              :initial="{
              	y:0,
              }"
              :enter="{
              	y:30,
              	transition:{
-             		type:'spring',
+             		type:'string',
              		repeat:Infinity,
              		repeatType:'mirror',
-             		repeatDelay:300,
-             		stiffness: 90,
-				    damping: 60,
-				    mass: 0.4,
+             		stiffness: 3000,
+				        damping: 0,
+				        mass: 1,
+				        	duration:1200,
+				      
              	}
              }"
 
@@ -85,15 +86,18 @@
 	const opened = ref(false)
 	const opener = () =>{
 		opened.value = true
+
 		console.log('clicking')
 	}
 </script>
 <style lang="scss" scoped>
 	.leaves{
 		animation-name: card-leave;
-		animation-duration: 0.6s;
+		animation-duration: 0.8s;
+		animation-fill-mode: forwards;
 	}
    .letter-container{
+   	background-color: rgba(146,149,248,0.15);
    	position: absolute;
    	top: 0;
    	z-index: -3;
@@ -106,22 +110,24 @@
      	width: 18em;
      	height: 23em;
      	position: relative;
-
+      perspective: 1200px;
+      perspective-origin:bottom;
      	.cover{
           width: 100%;
           height: 100%;
           overflow: hidden;
           transform-origin: left;
-          transform: rotateY(0deg);
+          transform: rotateY(0deg) skew(0deg,0deg);
+           box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
           img{
           	width: 100%;
           }
      	}
      	.coverOpened{
-     		animation-name: open-letter;
-     		animation-duration: 1s;
-     		animation-timing-function: ease-in;
-     		animation-fill-mode: forwards;
+     		animation-name: open-letter,curve-letter;
+     		animation-duration: 2s ;
+     		animation-timing-function: ease-out ;
+     		animation-fill-mode: forwards ;
      	}
      	.info{
 	 	  display: flex;
@@ -158,9 +164,10 @@
      	display: flex;
      	justify-content: center;
      	margin-top: 8vh;
-     	font-family: Cairo;
+      font-family: 'Shadows Into Light', cursive;
+     	color: rgba(146,149,248,0.7);
      	font-size: 0.5em;
-     	font-weight: 100;
+     	font-weight: 400;
      }
    }	
 </style>
