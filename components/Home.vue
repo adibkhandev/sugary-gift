@@ -74,7 +74,7 @@
 	    </div>
 	    <Letter 
 	      v-if="animationState>=3"
-         
+          :animationState="animationState"
 	      >
 	    </Letter>	
 	</div>
@@ -82,7 +82,7 @@
 <script setup>
 	const loading = ref(true)
 	const {leave} = useMotion()
-	const animationState=ref(0)
+	const animationState=ref(3)
 	const cardGone = ref(false)
 	const start =()=>{
 		cardGone.value = true

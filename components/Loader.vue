@@ -11,6 +11,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+    background-color: rgba(146,149,248,0.15);
 	}
 .loader {
   width: 50px;

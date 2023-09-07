@@ -4,6 +4,12 @@
 		opacity: 0;
 	}
 }
+@keyframes visible-leave {
+	to{
+		transform: translateY(5000px);
+		opacity: 0;
+	}
+}
 @keyframes falldown {
 	35%{
 		transform: rotate(12deg);
@@ -38,5 +44,16 @@
 	
 	to{
 		transform: rotateY(-140deg) ;
+	}
+}
+@keyframes card-pops {
+	50%{
+         bottom: 0em;
+        transform: rotate(-46deg);
+	}
+	100%{
+		bottom: 5em;
+
+		transform: rotate(0deg);
 	}
 }
